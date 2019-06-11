@@ -22,19 +22,19 @@
       fill(0);
       textSize(30);
       noStroke();
-      titleMarkov = new RiMarkov(4);
+      titleMarkov = new RiMarkov(3);
       titleMarkov.loadText(campJSON.map(obj => {
         return obj.title;
-      }).join(''));
-      descMarkov = new RiMarkov(4);
+      }).join(' '));
+      descMarkov = new RiMarkov(3);
       descMarkov.loadText(campJSON.map(obj => {
         return obj.description;
-      }).join(''));
+      }).join(' '));
       genText(campJSON);
     }
 
     function draw() {
-      if (millis() - time > 120000) {
+      if (millis() - time > 90000) {
         console.log('should redraw, time: ', time);
         clear();
         genText(campJSON);
@@ -44,7 +44,7 @@
 
     function genText(campJSON) {
       console.log('camp json:', campJSON)
-      let title = titleMarkov.generateSentences(1);
+      let title = titleMarkov.generateSentence();
       let desc = descMarkov.generateSentences(4);
       console.log('title : ', title);
       console.log('desc: ', desc);
