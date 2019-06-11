@@ -26,7 +26,7 @@
       titleMarkov.loadText(campJSON.map(obj => {
         return obj.title;
       }).join(' '));
-      descMarkov = new RiMarkov(3);
+      descMarkov = new RiMarkov(4);
       descMarkov.loadText(campJSON.map(obj => {
         return obj.description;
       }).join(' '));
@@ -49,7 +49,7 @@
       console.log('title : ', title);
       console.log('desc: ', desc);
       text(title, 50, 50, 850, 950);
-      text(desc, 50, 200, 850, 950);
+      text(desc.join(' '), 50, 200, 850, 950);
     }
   </script>
   <style>
